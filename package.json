@@ -1,0 +1,27 @@
+{
+  "name": "wanandroid-java",
+  "version": "1.0.0",
+  "description": "wanandroid-java",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chongyucaiyan/WanAndroid-Java.git"
+  },
+  "author": "chongyucaiyan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chongyucaiyan/WanAndroid-Java/issues"
+  },
+  "homepage": "https://github.com/chongyucaiyan/WanAndroid-Java#readme",
+  "devDependencies": {
+    "cz-conventional-changelog": "^2.1.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
