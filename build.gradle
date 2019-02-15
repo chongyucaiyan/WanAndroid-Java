@@ -25,3 +25,22 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+// Define versions in a single place
+ext {
+    // Sdk
+    minSdkVersion = 15
+    targetSdkVersion = 28
+    compileSdkVersion = 28
+
+    // Support library
+    supportLibraryVersion = '28.0.0'
+    constraintLayoutVersion = '1.1.3'
+
+    // Test
+    junitVersion = '4.12'
+
+    // Android test
+    runnerVersion = '1.0.2'
+    espressoVersion = '3.0.2'
+}
