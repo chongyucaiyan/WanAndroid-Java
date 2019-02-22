@@ -14,7 +14,7 @@ android {
 
     buildTypes {
         debug {
-            minifyEnabled true
+            minifyEnabled false
             useProguard false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
@@ -44,4 +44,9 @@ dependencies {
     // Android test
     androidTestImplementation "com.android.support.test:runner:$rootProject.ext.runnerVersion"
     androidTestImplementation "com.android.support.test.espresso:espresso-core:$rootProject.ext.espressoVersion"
+
+    // App
+    debugImplementation "com.squareup.leakcanary:leakcanary-android:$rootProject.ext.leakCanaryVersion"
+    debugImplementation "com.squareup.leakcanary:leakcanary-support-fragment:$rootProject.ext.leakCanaryVersion"
+    releaseImplementation "com.squareup.leakcanary:leakcanary-android-no-op:$rootProject.ext.leakCanaryVersion"
 }
