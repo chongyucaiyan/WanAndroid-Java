@@ -1,7 +1,14 @@
 package com.github.cyc.wanandroid.app;
 
 import android.app.Application;
+import android.support.annotation.Nullable;
 
+import com.github.cyc.wanandroid.BuildConfig;
+import com.github.cyc.wanandroid.R;
+import com.orhanobut.logger.AndroidLogAdapter;
+import com.orhanobut.logger.FormatStrategy;
+import com.orhanobut.logger.Logger;
+import com.orhanobut.logger.PrettyFormatStrategy;
 import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
 
@@ -21,9 +28,24 @@ public class WanApplication extends Application {
         sRefWatcher = LeakCanary.install(this);
         // Normal app init code...
 
+        initLogger();
     }
 
     public static RefWatcher getRefWatcher() {
         return sRefWatcher;
+    }
+
+    private void initLogger() {
+        FormatStrategy formatStrategy = PrettyFormatStrategy.newBuilder()
+                .tag(getString(R.string.app_name))
+                .build();
+
+        Logger.addLogAdapter(new AndroidLogAdapter(formatStrategy) {
+
+            @Override
+            public boolean isLoggable(int priority, @Nullable String tag) {
+                return BuildConfig.DEBUG;
+            }
+        });
     }
 }

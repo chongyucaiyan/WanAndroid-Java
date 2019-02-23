@@ -45,4 +45,5 @@ ext {
 
     // App
     leakCanaryVersion = '1.6.3'
+    loggerVersion = '2.2.0'
 }
