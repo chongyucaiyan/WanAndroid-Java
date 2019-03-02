@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/tab_homepage"
+        android:title="@string/homepage"
+        android:icon="@drawable/ic_homepage" />
+
+    <item
+        android:id="@+id/tab_system"
+        android:title="@string/system"
+        android:icon="@drawable/ic_system" />
+
+    <item
+        android:id="@+id/tab_we_chat"
+        android:title="@string/we_chat"
+        android:icon="@drawable/ic_we_chat" />
+
+    <item
+        android:id="@+id/tab_navigation"
+        android:title="@string/navigation"
+        android:icon="@drawable/ic_navigation" />
+
+    <item
+        android:id="@+id/tab_project"
+        android:title="@string/project"
+        android:icon="@drawable/ic_project" />
+</menu>
