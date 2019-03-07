@@ -1,6 +1,12 @@
 <resources>
     <string name="app_name">WanAndroid</string>
 
+    <!--加载-->
+    <string name="loading">加载中&#8230;</string>
+    <string name="load_error">加载出错</string>
+    <string name="no_network">没有网络，点击重试</string>
+    <string name="no_data">没有数据</string>
+
     <!--主页-->
     <string name="homepage">首页</string>
     <string name="project">项目</string>
