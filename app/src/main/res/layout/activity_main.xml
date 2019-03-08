@@ -58,6 +58,6 @@
             app:headerLayout="@layout/view_nav_header"
             app:itemTextColor="@color/primary"
             app:itemIconTint="@color/primary"
-            app:menu="@menu/menu_nav" />
+            app:menu="@menu/menu_drawer_nav" />
     </android.support.v4.widget.DrawerLayout>
 </layout>
