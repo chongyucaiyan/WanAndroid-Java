@@ -9,7 +9,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
 import com.github.cyc.wanandroid.R;
-import com.github.cyc.wanandroid.base.viewmodel.BaseActivityViewModel;
+import com.github.cyc.wanandroid.base.viewmodel.BaseViewModel;
 import com.github.cyc.wanandroid.databinding.ActivityBaseBinding;
 import com.github.cyc.wanandroid.databinding.ViewLoadErrorBinding;
 import com.github.cyc.wanandroid.databinding.ViewLoadingBinding;
@@ -23,7 +23,7 @@ import com.github.cyc.wanandroid.enums.LoadState;
  * @param <DB> data binding
  * @param <VM> view model
  */
-public abstract class BaseActivity<DB extends ViewDataBinding, VM extends BaseActivityViewModel>
+public abstract class BaseActivity<DB extends ViewDataBinding, VM extends BaseViewModel>
         extends AppCompatActivity {
 
     protected DB mDataBinding;

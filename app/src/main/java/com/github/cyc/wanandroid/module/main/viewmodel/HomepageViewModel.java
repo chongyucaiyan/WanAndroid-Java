@@ -4,7 +4,7 @@ import android.databinding.ObservableArrayList;
 import android.databinding.ObservableList;
 import android.support.annotation.NonNull;
 
-import com.github.cyc.wanandroid.base.viewmodel.BaseFragmentViewModel;
+import com.github.cyc.wanandroid.base.viewmodel.BaseViewModel;
 import com.github.cyc.wanandroid.data.DataManager;
 import com.github.cyc.wanandroid.enums.LoadState;
 import com.github.cyc.wanandroid.enums.RefreshState;
@@ -24,7 +24,7 @@ import io.reactivex.functions.BiFunction;
 /**
  * 首页tab的ViewModel
  */
-public class HomepageViewModel extends BaseFragmentViewModel {
+public class HomepageViewModel extends BaseViewModel {
 
     public final ObservableList<Object> dataList = new ObservableArrayList<>();
 

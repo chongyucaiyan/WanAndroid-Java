@@ -12,7 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.github.cyc.wanandroid.R;
-import com.github.cyc.wanandroid.base.viewmodel.BaseFragmentViewModel;
+import com.github.cyc.wanandroid.base.viewmodel.BaseViewModel;
 import com.github.cyc.wanandroid.databinding.FragmentBaseBinding;
 import com.github.cyc.wanandroid.databinding.ViewLoadErrorBinding;
 import com.github.cyc.wanandroid.databinding.ViewLoadingBinding;
@@ -26,7 +26,7 @@ import com.github.cyc.wanandroid.enums.LoadState;
  * @param <DB> data binding
  * @param <VM> view model
  */
-public abstract class BaseFragment<DB extends ViewDataBinding, VM extends BaseFragmentViewModel>
+public abstract class BaseFragment<DB extends ViewDataBinding, VM extends BaseViewModel>
         extends Fragment {
 
     protected DB mDataBinding;
