@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="android.text.TextUtils" />
+
+        <variable
+            name="viewModel"
+            type="com.github.cyc.wanandroid.module.main.viewmodel.item.ArticleViewModel" />
+    </data>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="6dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        app:cardCornerRadius="3dp"
+        app:cardElevation="2dp">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp">
+
+            <LinearLayout
+                android:id="@+id/ll_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_top"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/shape_label_red"
+                    android:text="@string/top"
+                    android:textColor="@color/primary_red"
+                    android:textSize="12sp"
+                    android:visibility="@{viewModel.top ? View.VISIBLE : View.GONE}" />
+
+                <TextView
+                    android:id="@+id/tv_fresh"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/shape_label_red"
+                    android:text="@string/fresh"
+                    android:textColor="@color/primary_red"
+                    android:textSize="12sp"
+                    android:visibility="@{viewModel.fresh ? View.VISIBLE : View.GONE}" />
+
+                <TextView
+                    android:id="@+id/tv_tag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/shape_label_green"
+                    android:text="@{viewModel.tag}"
+                    android:textColor="@color/primary_green"
+                    android:textSize="12sp"
+                    android:visibility="@{!TextUtils.isEmpty(viewModel.tag) ? View.VISIBLE : View.GONE}"
+                    tools:text="标签" />
+
+                <TextView
+                    android:id="@+id/tv_author"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="2dp"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:text="@{viewModel.author}"
+                    android:textColor="@color/secondary_text"
+                    android:textSize="12sp"
+                    tools:text="作者" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:text="@{viewModel.time}"
+                android:textColor="@color/secondary_text"
+                android:textSize="12sp"
+                tools:text="时间"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintRight_toRightOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:text="@{viewModel.title}"
+                android:textColor="@color/primary_text"
+                android:textSize="16sp"
+                tools:text="文章标题"
+                app:layout_constraintTop_toBottomOf="@id/ll_label"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_chapterName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@{viewModel.chapterName}"
+                android:textColor="@color/secondary_text"
+                android:textSize="12sp"
+                tools:text="章节名"
+                app:layout_constraintTop_toBottomOf="@id/tv_title"
+                app:layout_constraintLeft_toLeftOf="parent" />
+        </android.support.constraint.ConstraintLayout>
+    </android.support.v7.widget.CardView>
+</layout>

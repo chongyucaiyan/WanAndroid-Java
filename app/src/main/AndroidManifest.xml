@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.github.cyc.wanandroid">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".app.WanApplication"
         android:allowBackup="false"

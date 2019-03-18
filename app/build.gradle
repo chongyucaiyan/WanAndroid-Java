@@ -29,6 +29,23 @@ android {
     dataBinding {
         enabled = true
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+// 统一支持库的版本
+configurations.all {
+    resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+        def requested = details.requested
+        if (requested.group == 'com.android.support') {
+            if (!requested.name.startsWith("multidex")) {
+                details.useVersion "$rootProject.ext.supportLibraryVersion"
+            }
+        }
+    }
 }
 
 /*
@@ -57,4 +74,23 @@ dependencies {
 
     // Logger
     implementation "com.orhanobut:logger:$rootProject.ext.loggerVersion"
+
+    // Lifecycle
+    implementation "android.arch.lifecycle:common-java8:$rootProject.ext.lifecycleVersion"
+
+    // OkHttp
+    implementation "com.squareup.okhttp3:okhttp:$rootProject.ext.okHttpVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.ext.okHttpVersion"
+
+    // Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$rootProject.ext.retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$rootProject.ext.retrofitVersion"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$rootProject.ext.retrofitVersion"
+
+    // RxJava
+    implementation "io.reactivex.rxjava2:rxjava:$rootProject.ext.rxJavaVersion"
+    implementation "io.reactivex.rxjava2:rxandroid:$rootProject.ext.rxAndroidVersion"
+
+    // MaterialRefreshLayout
+    implementation "com.cjj.materialrefeshlayout:library:$rootProject.ext.materialRefreshLayoutVersion"
 }

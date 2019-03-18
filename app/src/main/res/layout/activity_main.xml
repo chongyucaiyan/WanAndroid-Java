@@ -30,6 +30,7 @@
                     android:id="@+id/tb_toolbar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    app:layout_scrollFlags="scroll|enterAlways"
                     app:theme="@style/Toolbar" />
             </android.support.design.widget.AppBarLayout>
 
@@ -44,10 +45,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
+                android:background="@color/page_background"
                 app:elevation="16dp"
                 app:itemTextColor="@color/selector_bottom_nav_item_color"
                 app:itemIconTint="@color/selector_bottom_nav_item_color"
-                app:menu="@menu/menu_bottom_nav" />
+                app:menu="@menu/menu_bottom_nav"
+                app:layout_behavior="@string/bottom_navigation_behavior" />
         </android.support.design.widget.CoordinatorLayout>
 
         <android.support.design.widget.NavigationView

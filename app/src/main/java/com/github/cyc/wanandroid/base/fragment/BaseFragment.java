@@ -12,13 +12,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.github.cyc.wanandroid.R;
-import com.github.cyc.wanandroid.base.enums.LoadState;
 import com.github.cyc.wanandroid.base.viewmodel.BaseFragmentViewModel;
 import com.github.cyc.wanandroid.databinding.FragmentBaseBinding;
 import com.github.cyc.wanandroid.databinding.ViewLoadErrorBinding;
 import com.github.cyc.wanandroid.databinding.ViewLoadingBinding;
 import com.github.cyc.wanandroid.databinding.ViewNoDataBinding;
 import com.github.cyc.wanandroid.databinding.ViewNoNetworkBinding;
+import com.github.cyc.wanandroid.enums.LoadState;
 
 /**
  * Fragment的基类
@@ -52,6 +52,13 @@ public abstract class BaseFragment<DB extends ViewDataBinding, VM extends BaseFr
         if (args != null) {
             handleArguments(args);
         }
+
+        initViewModel();
+
+        // ViewModel订阅生命周期事件
+        if (mViewModel != null) {
+            getLifecycle().addObserver(mViewModel);
+        }
     }
 
     @Nullable
@@ -61,7 +68,6 @@ public abstract class BaseFragment<DB extends ViewDataBinding, VM extends BaseFr
         mDataBinding = DataBindingUtil.inflate(inflater, getLayoutResId(),
                 mFragmentBaseBinding.flContentContainer, true);
 
-        initViewModel();
         bindViewModel();
 
         initLoadState();
@@ -73,13 +79,13 @@ public abstract class BaseFragment<DB extends ViewDataBinding, VM extends BaseFr
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        if (mViewModel != null) {
+        if (mViewModel != null && isSupportLoad()) {
             mViewModel.loadState.removeOnPropertyChangedCallback(mLoadStateCallback);
         }
     }
 
     private void initLoadState() {
-        if (mViewModel != null) {
+        if (mViewModel != null && isSupportLoad()) {
             mLoadStateCallback = new Observable.OnPropertyChangedCallback() {
 
                 @Override
@@ -147,6 +153,15 @@ public abstract class BaseFragment<DB extends ViewDataBinding, VM extends BaseFr
      */
     protected void handleArguments(Bundle args) {
 
+    }
+
+    /**
+     * 是否支持页面加载。默认不支持
+     *
+     * @return true表示支持，false表示不支持
+     */
+    protected boolean isSupportLoad() {
+        return false;
     }
 
     /**

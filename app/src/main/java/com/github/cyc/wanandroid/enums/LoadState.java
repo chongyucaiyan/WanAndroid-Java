@@ -1,4 +1,4 @@
-package com.github.cyc.wanandroid.base.enums;
+package com.github.cyc.wanandroid.enums;
 
 /**
  * 加载状态

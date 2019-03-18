@@ -14,6 +14,8 @@ import com.squareup.leakcanary.RefWatcher;
 
 public class WanApplication extends Application {
 
+    private static WanApplication sWanApplication;
+
     private static RefWatcher sRefWatcher;
 
     @Override
@@ -28,7 +30,13 @@ public class WanApplication extends Application {
         sRefWatcher = LeakCanary.install(this);
         // Normal app init code...
 
+        sWanApplication = this;
+
         initLogger();
+    }
+
+    public static WanApplication getInstance() {
+        return sWanApplication;
     }
 
     public static RefWatcher getRefWatcher() {

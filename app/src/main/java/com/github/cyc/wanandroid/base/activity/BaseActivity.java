@@ -9,13 +9,13 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
 import com.github.cyc.wanandroid.R;
-import com.github.cyc.wanandroid.base.enums.LoadState;
 import com.github.cyc.wanandroid.base.viewmodel.BaseActivityViewModel;
 import com.github.cyc.wanandroid.databinding.ActivityBaseBinding;
 import com.github.cyc.wanandroid.databinding.ViewLoadErrorBinding;
 import com.github.cyc.wanandroid.databinding.ViewLoadingBinding;
 import com.github.cyc.wanandroid.databinding.ViewNoDataBinding;
 import com.github.cyc.wanandroid.databinding.ViewNoNetworkBinding;
+import com.github.cyc.wanandroid.enums.LoadState;
 
 /**
  * Activity的基类
@@ -56,18 +56,23 @@ public abstract class BaseActivity<DB extends ViewDataBinding, VM extends BaseAc
 
         initLoadState();
         init();
+
+        // ViewModel订阅生命周期事件
+        if (mViewModel != null) {
+            getLifecycle().addObserver(mViewModel);
+        }
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (mViewModel != null) {
+        if (mViewModel != null && isSupportLoad()) {
             mViewModel.loadState.removeOnPropertyChangedCallback(mLoadStateCallback);
         }
     }
 
     private void initLoadState() {
-        if (mViewModel != null) {
+        if (mViewModel != null && isSupportLoad()) {
             mLoadStateCallback = new Observable.OnPropertyChangedCallback() {
 
                 @Override
@@ -135,6 +140,15 @@ public abstract class BaseActivity<DB extends ViewDataBinding, VM extends BaseAc
      */
     protected void handleIntent(Intent intent) {
 
+    }
+
+    /**
+     * 是否支持页面加载。默认不支持
+     *
+     * @return true表示支持，false表示不支持
+     */
+    protected boolean isSupportLoad() {
+        return false;
     }
 
     /**
