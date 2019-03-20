@@ -17,7 +17,8 @@
         android:background="@color/page_background"
         app:isLoadMore="true"
         app:overlay="true"
-        app:wave_show="false"
+        app:wave_show="true"
+        app:wave_color="@android:color/transparent"
         app:refreshState="@{viewModel.refreshState}"
         app:hasMore="@{viewModel.hasMore}"
         tools:context=".module.main.fragment.HomepageFragment">
