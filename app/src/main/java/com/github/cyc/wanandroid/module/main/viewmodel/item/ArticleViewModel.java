@@ -3,11 +3,13 @@ package com.github.cyc.wanandroid.module.main.viewmodel.item;
 import android.databinding.ObservableBoolean;
 import android.databinding.ObservableField;
 import android.support.annotation.NonNull;
+import android.text.TextUtils;
 
 import com.github.cyc.wanandroid.R;
 import com.github.cyc.wanandroid.base.viewmodel.BaseItemViewModel;
 import com.github.cyc.wanandroid.http.model.Article;
 import com.github.cyc.wanandroid.http.model.Tag;
+import com.github.cyc.wanandroid.navigator.DetailsNavigator;
 import com.github.cyc.wanandroid.utils.ResourceUtils;
 import com.github.cyc.wanandroid.utils.Utils;
 
@@ -32,8 +34,10 @@ public class ArticleViewModel extends BaseItemViewModel<Article> {
 
     public final ObservableBoolean fresh = new ObservableBoolean(false);
 
-    public ArticleViewModel() {
+    private DetailsNavigator mDetailsNavigator;
 
+    public ArticleViewModel(DetailsNavigator detailsNavigator) {
+        mDetailsNavigator = detailsNavigator;
     }
 
     @Override
@@ -62,6 +66,17 @@ public class ArticleViewModel extends BaseItemViewModel<Article> {
             this.fresh.set(fresh);
         } else {
             this.fresh.set(false);
+        }
+    }
+
+    public void onClickItem() {
+        if (mDetailsNavigator == null) {
+            return;
+        }
+
+        Article article = getBaseModel();
+        if (article != null && !TextUtils.isEmpty(article.getLink())) {
+            mDetailsNavigator.startDetailsActivity(article.getLink());
         }
     }
 }

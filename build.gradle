@@ -54,4 +54,5 @@ ext {
     glideVersion = '4.9.0'
     materialRefreshLayoutVersion = '1.3.0'
     bannerVersion = '1.4.10'
+    agentWebVersion = '4.0.2'
 }

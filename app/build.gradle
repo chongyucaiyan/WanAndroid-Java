@@ -100,4 +100,7 @@ dependencies {
 
     // Banner
     implementation "com.youth.banner:banner:$rootProject.ext.bannerVersion"
+
+    // AgentWeb
+    implementation "com.just.agentweb:agentweb:$rootProject.ext.agentWebVersion"
 }

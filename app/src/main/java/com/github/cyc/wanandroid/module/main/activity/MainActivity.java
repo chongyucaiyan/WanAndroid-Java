@@ -59,7 +59,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
     }
 
     private void initToolbar() {
-        setSupportActionBar(mDataBinding.tbToolbar);
+        setSupportActionBar(mDataBinding.iToolbar.tbToolbar);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setHomeAsUpIndicator(R.drawable.ic_menu);
         actionBar.setDisplayHomeAsUpEnabled(true);

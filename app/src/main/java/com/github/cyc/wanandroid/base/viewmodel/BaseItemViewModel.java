@@ -14,6 +14,15 @@ public abstract class BaseItemViewModel<T> extends BaseObservable {
     public final ObservableField<T> baseModel = new ObservableField<>();
 
     /**
+     * 获取基础model
+     *
+     * @return 基础model
+     */
+    public T getBaseModel() {
+        return baseModel.get();
+    }
+
+    /**
      * 设置基础model
      *
      * @param t 基础model
