@@ -6,7 +6,11 @@ import android.support.v7.widget.RecyclerView;
 import com.cjj.MaterialRefreshLayout;
 import com.github.cyc.wanandroid.base.adapter.BaseAdapter;
 import com.github.cyc.wanandroid.enums.RefreshState;
+import com.github.cyc.wanandroid.http.model.Banner;
+import com.github.cyc.wanandroid.module.main.model.BannerData;
+import com.github.cyc.wanandroid.utils.Utils;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -70,5 +74,30 @@ public final class WanBindingAdapter {
         if (hasMore != null) {
             refreshLayout.setLoadMore(hasMore);
         }
+    }
+
+    /**
+     * 设置Banner的数据
+     *
+     * @param banner     Banner
+     * @param bannerData Banner数据
+     */
+    @BindingAdapter("app:bannerData")
+    public static void setBannerData(com.youth.banner.Banner banner, BannerData bannerData) {
+        if (bannerData == null || Utils.isListEmpty(bannerData.getBannerList())) {
+            return;
+        }
+
+        List<String> imageUrlList = new ArrayList<>();
+        List<String> titleList = new ArrayList<>();
+
+        for (Banner data : bannerData.getBannerList()) {
+            imageUrlList.add(data.getImagePath());
+            titleList.add(data.getTitle());
+        }
+
+        banner.setImages(imageUrlList);
+        banner.setBannerTitles(titleList);
+        banner.start();
     }
 }

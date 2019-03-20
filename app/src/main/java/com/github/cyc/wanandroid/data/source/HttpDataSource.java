@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import com.github.cyc.wanandroid.http.api.ApiService;
 import com.github.cyc.wanandroid.http.model.Article;
 import com.github.cyc.wanandroid.http.model.ArticleList;
+import com.github.cyc.wanandroid.http.model.Banner;
 import com.github.cyc.wanandroid.http.model.Response;
 
 import java.util.List;
@@ -37,12 +38,17 @@ public class HttpDataSource implements IHttpDataSource {
     }
 
     @Override
-    public Observable<Response<List<Article>>> getTopArticleList() {
-        return mApiService.getTopArticleList();
+    public Observable<Response<List<Banner>>> getBannerData() {
+        return mApiService.getBannerData();
     }
 
     @Override
-    public Observable<Response<ArticleList>> getArticleList(int pageNum) {
-        return mApiService.getArticleList(pageNum);
+    public Observable<Response<List<Article>>> getTopArticleListData() {
+        return mApiService.getTopArticleListData();
+    }
+
+    @Override
+    public Observable<Response<ArticleList>> getArticleListData(int pageNum) {
+        return mApiService.getArticleListData(pageNum);
     }
 }

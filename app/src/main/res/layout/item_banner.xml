@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.github.cyc.wanandroid.module.main.viewmodel.item.BannerViewModel" />
+    </data>
+
+    <com.youth.banner.Banner
+        android:id="@+id/b_banner"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        app:delay_time="5000"
+        app:scroll_time="1000"
+        app:is_auto_play="true"
+        app:bannerData="@{viewModel.baseModel}" />
+</layout>

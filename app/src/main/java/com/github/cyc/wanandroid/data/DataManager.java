@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import com.github.cyc.wanandroid.data.source.IHttpDataSource;
 import com.github.cyc.wanandroid.http.model.Article;
 import com.github.cyc.wanandroid.http.model.ArticleList;
+import com.github.cyc.wanandroid.http.model.Banner;
 import com.github.cyc.wanandroid.http.model.Response;
 
 import java.util.List;
@@ -37,12 +38,17 @@ public class DataManager implements IHttpDataSource {
     }
 
     @Override
-    public Observable<Response<List<Article>>> getTopArticleList() {
-        return mHttpDataSource.getTopArticleList();
+    public Observable<Response<List<Banner>>> getBannerData() {
+        return mHttpDataSource.getBannerData();
     }
 
     @Override
-    public Observable<Response<ArticleList>> getArticleList(int pageNum) {
-        return mHttpDataSource.getArticleList(pageNum);
+    public Observable<Response<List<Article>>> getTopArticleListData() {
+        return mHttpDataSource.getTopArticleListData();
+    }
+
+    @Override
+    public Observable<Response<ArticleList>> getArticleListData(int pageNum) {
+        return mHttpDataSource.getArticleListData(pageNum);
     }
 }

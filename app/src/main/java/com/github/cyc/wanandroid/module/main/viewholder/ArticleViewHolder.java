@@ -26,4 +26,9 @@ public class ArticleViewHolder extends BaseViewHolder<ItemArticleBinding, Articl
     protected void bindViewModel() {
         mDataBinding.setViewModel(mViewModel);
     }
+
+    @Override
+    protected void init() {
+
+    }
 }

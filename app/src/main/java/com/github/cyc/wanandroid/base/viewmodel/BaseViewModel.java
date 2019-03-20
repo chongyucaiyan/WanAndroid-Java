@@ -58,6 +58,11 @@ public abstract class BaseViewModel extends BaseObservable implements DefaultLif
         return refreshState;
     }
 
+    /**
+     * 设置RefreshLayout的刷新状态
+     *
+     * @param refreshState 刷新状态
+     */
     protected void setRefreshState(RefreshState refreshState) {
         this.refreshState = refreshState;
         notifyPropertyChanged(BR.refreshState);
@@ -68,6 +73,11 @@ public abstract class BaseViewModel extends BaseObservable implements DefaultLif
         return hasMore;
     }
 
+    /**
+     * 设置RefreshLayout的加载更多
+     *
+     * @param hasMore true表示还有更多，false表示没有更多了
+     */
     protected void setHasMore(Boolean hasMore) {
         this.hasMore = hasMore;
         notifyPropertyChanged(BR.hasMore);

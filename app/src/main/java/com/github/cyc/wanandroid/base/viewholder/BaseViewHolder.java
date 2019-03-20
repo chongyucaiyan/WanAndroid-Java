@@ -30,6 +30,8 @@ public abstract class BaseViewHolder<DB extends ViewDataBinding, VM extends Base
 
         initViewModel();
         bindViewModel();
+
+        init();
     }
 
     public VM getViewModel() {
@@ -45,4 +47,9 @@ public abstract class BaseViewHolder<DB extends ViewDataBinding, VM extends Base
      * 绑定ViewModel
      */
     protected abstract void bindViewModel();
+
+    /**
+     * 初始化
+     */
+    protected abstract void init();
 }

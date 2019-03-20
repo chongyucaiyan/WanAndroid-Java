@@ -51,5 +51,7 @@ ext {
     retrofitVersion = '2.5.0'
     rxJavaVersion = '2.2.7'
     rxAndroidVersion = '2.1.1'
+    glideVersion = '4.9.0'
     materialRefreshLayoutVersion = '1.3.0'
+    bannerVersion = '1.4.10'
 }

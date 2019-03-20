@@ -1,7 +1,6 @@
 package com.github.cyc.wanandroid.base.viewmodel;
 
 import android.databinding.BaseObservable;
-import android.databinding.Observable;
 import android.databinding.ObservableField;
 import android.support.annotation.NonNull;
 
@@ -12,25 +11,7 @@ import android.support.annotation.NonNull;
  */
 public abstract class BaseItemViewModel<T> extends BaseObservable {
 
-    private ObservableField<T> mBaseModel;
-
-    public BaseItemViewModel() {
-        initBaseModel();
-    }
-
-    private void initBaseModel() {
-        mBaseModel = new ObservableField<>();
-        mBaseModel.addOnPropertyChangedCallback(new OnPropertyChangedCallback() {
-
-            @Override
-            public void onPropertyChanged(Observable sender, int propertyId) {
-                T t = mBaseModel.get();
-                if (t != null) {
-                    setAllModel(t);
-                }
-            }
-        });
-    }
+    public final ObservableField<T> baseModel = new ObservableField<>();
 
     /**
      * 设置基础model
@@ -38,8 +19,10 @@ public abstract class BaseItemViewModel<T> extends BaseObservable {
      * @param t 基础model
      */
     public void setBaseModel(T t) {
-        if (mBaseModel != null) {
-            mBaseModel.set(t);
+        baseModel.set(t);
+
+        if (t != null) {
+            setAllModel(t);
         }
     }
 
