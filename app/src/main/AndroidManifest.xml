@@ -16,13 +16,19 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
 
-        <activity android:name=".module.main.activity.MainActivity">
+        <activity
+            android:name=".module.splash.activity.SplashActivity"
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".module.main.activity.MainActivity"
+            android:launchMode="singleTask" />
 
         <activity android:name=".module.details.activity.DetailsActivity" />
 

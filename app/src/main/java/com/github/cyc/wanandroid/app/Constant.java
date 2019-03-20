@@ -9,6 +9,8 @@ public interface Constant {
 
     String KEY_URL = "key_url";
 
+    long SPLASH_TIME = 2000;
+
     long TIMEOUT_CONNECT = 10;
     long TIMEOUT_READ = 10;
     long TIMEOUT_WRITE = 10;

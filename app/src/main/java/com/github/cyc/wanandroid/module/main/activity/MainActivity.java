@@ -1,5 +1,7 @@
 package com.github.cyc.wanandroid.module.main.activity;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.NavigationView;
@@ -34,6 +36,11 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
     private SparseArray<Fragment> mFragmentMap = new SparseArray<>();
 
     private int mLastIndex = -1;
+
+    public static void start(Context context) {
+        Intent intent = new Intent(context, MainActivity.class);
+        context.startActivity(intent);
+    }
 
     @Override
     protected int getLayoutResId() {
