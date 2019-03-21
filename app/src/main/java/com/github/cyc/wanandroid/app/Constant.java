@@ -8,6 +8,7 @@ public interface Constant {
     String BASE_URL = "https://www.wanandroid.com/";
 
     String KEY_URL = "key_url";
+    String KEY_ID = "key_id";
 
     long SPLASH_TIME = 2000;
 

@@ -57,4 +57,14 @@ public class HttpDataSource implements IHttpDataSource {
     public Observable<Response<List<Chapter>>> getSystemListData() {
         return mApiService.getSystemListData();
     }
+
+    @Override
+    public Observable<Response<List<Chapter>>> getWeChatListData() {
+        return mApiService.getWeChatListData();
+    }
+
+    @Override
+    public Observable<Response<ArticleList>> getWeChatArticleListData(int id, int pageNum) {
+        return mApiService.getWeChatArticleListData(id, pageNum);
+    }
 }

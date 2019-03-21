@@ -3,8 +3,8 @@ package com.github.cyc.wanandroid.http.api;
 import com.github.cyc.wanandroid.http.model.Article;
 import com.github.cyc.wanandroid.http.model.ArticleList;
 import com.github.cyc.wanandroid.http.model.Banner;
-import com.github.cyc.wanandroid.http.model.Response;
 import com.github.cyc.wanandroid.http.model.Chapter;
+import com.github.cyc.wanandroid.http.model.Response;
 
 import java.util.List;
 
@@ -49,5 +49,23 @@ public interface ApiService {
      */
     @GET("tree/json")
     Observable<Response<List<Chapter>>> getSystemListData();
+
+    /**
+     * 获取公众号列表数据
+     *
+     * @return 公众号列表数据
+     */
+    @GET("wxarticle/chapters/json")
+    Observable<Response<List<Chapter>>> getWeChatListData();
+
+    /**
+     * 获取某个公众号文章列表数据
+     *
+     * @param id      公众号ID
+     * @param pageNum 页数
+     * @return 公众号文章列表数据
+     */
+    @GET("wxarticle/list/{id}/{pageNum}/json")
+    Observable<Response<ArticleList>> getWeChatArticleListData(@Path("id") int id, @Path("pageNum") int pageNum);
 
 }

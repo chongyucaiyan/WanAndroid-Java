@@ -10,20 +10,24 @@
             type="com.github.cyc.wanandroid.module.main.viewmodel.WeChatViewModel" />
     </data>
 
-    <android.support.constraint.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/page_background"
+        android:orientation="vertical"
         tools:context=".module.main.fragment.WeChatFragment">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tl_tab_layout"
+            style="@style/TabLayoutStyle"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/we_chat"
-            android:textColor="@color/primary_text"
-            android:textSize="16sp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent" />
-    </android.support.constraint.ConstraintLayout>
+            app:tabMode="scrollable" />
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/vp_view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:dataList="@{viewModel.dataList}" />
+    </LinearLayout>
 </layout>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.github.cyc.wanandroid.module.main.viewmodel.ArticleListViewModel" />
+    </data>
+
+    <com.cjj.MaterialRefreshLayout
+        android:id="@+id/mrl_refresh_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/page_background"
+        app:isLoadMore="true"
+        app:overlay="true"
+        app:wave_show="true"
+        app:wave_color="@android:color/transparent"
+        app:refreshState="@{viewModel.refreshState}"
+        app:hasMore="@{viewModel.hasMore}"
+        tools:context=".module.main.fragment.HomepageFragment">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:dataList="@{viewModel.dataList}" />
+    </com.cjj.MaterialRefreshLayout>
+</layout>

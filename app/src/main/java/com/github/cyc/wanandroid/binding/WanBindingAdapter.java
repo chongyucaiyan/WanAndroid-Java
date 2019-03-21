@@ -1,10 +1,13 @@
 package com.github.cyc.wanandroid.binding;
 
 import android.databinding.BindingAdapter;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.RecyclerView;
 
 import com.cjj.MaterialRefreshLayout;
 import com.github.cyc.wanandroid.base.adapter.BaseAdapter;
+import com.github.cyc.wanandroid.base.adapter.BasePagerAdapter;
 import com.github.cyc.wanandroid.enums.RefreshState;
 import com.github.cyc.wanandroid.http.model.Banner;
 import com.github.cyc.wanandroid.module.main.model.BannerData;
@@ -34,6 +37,23 @@ public final class WanBindingAdapter {
         if (adapter instanceof BaseAdapter) {
             BaseAdapter baseAdapter = (BaseAdapter) adapter;
             baseAdapter.setDataList(dataList);
+        }
+    }
+
+    /**
+     * 设置ViewPager的数据列表
+     *
+     * @param viewPager ViewPager
+     * @param dataList  数据列表
+     * @param <T>       数据类型
+     */
+    @SuppressWarnings("unchecked")
+    @BindingAdapter("app:dataList")
+    public static <T> void setDataList(ViewPager viewPager, List<T> dataList) {
+        PagerAdapter adapter = viewPager.getAdapter();
+        if (adapter instanceof BasePagerAdapter) {
+            BasePagerAdapter basePagerAdapter = (BasePagerAdapter) adapter;
+            basePagerAdapter.setDataList(dataList);
         }
     }
 

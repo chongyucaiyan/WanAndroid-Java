@@ -57,4 +57,14 @@ public class DataManager implements IHttpDataSource {
     public Observable<Response<List<Chapter>>> getSystemListData() {
         return mHttpDataSource.getSystemListData();
     }
+
+    @Override
+    public Observable<Response<List<Chapter>>> getWeChatListData() {
+        return mHttpDataSource.getWeChatListData();
+    }
+
+    @Override
+    public Observable<Response<ArticleList>> getWeChatArticleListData(int id, int pageNum) {
+        return mHttpDataSource.getWeChatArticleListData(id, pageNum);
+    }
 }
