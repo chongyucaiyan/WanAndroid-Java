@@ -4,7 +4,7 @@ import android.support.annotation.NonNull;
 import android.view.ViewGroup;
 
 import com.github.cyc.wanandroid.base.adapter.BaseAdapter;
-import com.github.cyc.wanandroid.http.model.System;
+import com.github.cyc.wanandroid.http.model.Chapter;
 import com.github.cyc.wanandroid.module.main.viewholder.SystemViewHolder;
 
 /**
@@ -25,6 +25,6 @@ public class SystemListAdapter extends BaseAdapter<SystemViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull SystemViewHolder holder, int position) {
         Object data = mDataList.get(position);
-        holder.getViewModel().setBaseModel((System) data);
+        holder.getViewModel().setBaseModel((Chapter) data);
     }
 }

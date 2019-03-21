@@ -4,7 +4,7 @@ import com.github.cyc.wanandroid.app.NoProguard;
 
 import java.util.List;
 
-public class System implements NoProguard {
+public class Chapter implements NoProguard {
 
     private Integer courseId;
     private Integer id;
@@ -13,7 +13,7 @@ public class System implements NoProguard {
     private Integer parentChapterId;
     private Boolean userControlSetTop;
     private Integer visible;
-    private List<System> children;
+    private List<Chapter> children;
 
     public Integer getCourseId() {
         return courseId;
@@ -71,11 +71,11 @@ public class System implements NoProguard {
         this.visible = visible;
     }
 
-    public List<System> getChildren() {
+    public List<Chapter> getChildren() {
         return children;
     }
 
-    public void setChildren(List<System> children) {
+    public void setChildren(List<Chapter> children) {
         this.children = children;
     }
 }

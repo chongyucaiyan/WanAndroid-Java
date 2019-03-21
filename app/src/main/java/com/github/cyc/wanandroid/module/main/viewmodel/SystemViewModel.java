@@ -9,7 +9,7 @@ import com.github.cyc.wanandroid.data.DataManager;
 import com.github.cyc.wanandroid.enums.LoadState;
 import com.github.cyc.wanandroid.enums.RefreshState;
 import com.github.cyc.wanandroid.http.base.BaseObserver;
-import com.github.cyc.wanandroid.http.model.System;
+import com.github.cyc.wanandroid.http.model.Chapter;
 import com.github.cyc.wanandroid.utils.RxUtils;
 import com.github.cyc.wanandroid.utils.Utils;
 
@@ -52,17 +52,17 @@ public class SystemViewModel extends BaseViewModel {
 
         addDisposable(mDataManager.getSystemListData()
                 .compose(RxUtils.applySchedulers())
-                .subscribeWith(new BaseObserver<List<System>>(loadState, !mRefresh) {
+                .subscribeWith(new BaseObserver<List<Chapter>>(loadState, !mRefresh) {
 
                     @Override
-                    public void onNextX(List<System> systemList) {
+                    public void onNextX(List<Chapter> chapterList) {
                         if (mRefresh) {
                             setRefreshState(RefreshState.REFRESH_END);
                         }
 
-                        if (!Utils.isListEmpty(systemList)) {
+                        if (!Utils.isListEmpty(chapterList)) {
                             dataList.clear();
-                            dataList.addAll(systemList);
+                            dataList.addAll(chapterList);
 
                             if (!mRefresh) {
                                 loadState.set(LoadState.SUCCESS);
