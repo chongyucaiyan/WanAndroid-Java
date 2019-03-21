@@ -7,6 +7,7 @@ import com.github.cyc.wanandroid.http.model.Article;
 import com.github.cyc.wanandroid.http.model.ArticleList;
 import com.github.cyc.wanandroid.http.model.Banner;
 import com.github.cyc.wanandroid.http.model.Response;
+import com.github.cyc.wanandroid.http.model.System;
 
 import java.util.List;
 
@@ -50,5 +51,10 @@ public class DataManager implements IHttpDataSource {
     @Override
     public Observable<Response<ArticleList>> getArticleListData(int pageNum) {
         return mHttpDataSource.getArticleListData(pageNum);
+    }
+
+    @Override
+    public Observable<Response<List<System>>> getSystemListData() {
+        return mHttpDataSource.getSystemListData();
     }
 }

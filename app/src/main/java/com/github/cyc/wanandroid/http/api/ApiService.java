@@ -4,6 +4,7 @@ import com.github.cyc.wanandroid.http.model.Article;
 import com.github.cyc.wanandroid.http.model.ArticleList;
 import com.github.cyc.wanandroid.http.model.Banner;
 import com.github.cyc.wanandroid.http.model.Response;
+import com.github.cyc.wanandroid.http.model.System;
 
 import java.util.List;
 
@@ -40,5 +41,13 @@ public interface ApiService {
      */
     @GET("article/list/{pageNum}/json")
     Observable<Response<ArticleList>> getArticleListData(@Path("pageNum") int pageNum);
+
+    /**
+     * 获取体系列表数据
+     *
+     * @return 体系列表数据
+     */
+    @GET("tree/json")
+    Observable<Response<List<System>>> getSystemListData();
 
 }

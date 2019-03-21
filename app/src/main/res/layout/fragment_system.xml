@@ -10,20 +10,22 @@
             type="com.github.cyc.wanandroid.module.main.viewmodel.SystemViewModel" />
     </data>
 
-    <android.support.constraint.ConstraintLayout
+    <com.cjj.MaterialRefreshLayout
+        android:id="@+id/mrl_refresh_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/page_background"
+        app:isLoadMore="false"
+        app:overlay="true"
+        app:wave_show="true"
+        app:wave_color="@android:color/transparent"
+        app:refreshState="@{viewModel.refreshState}"
         tools:context=".module.main.fragment.SystemFragment">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/system"
-            android:textColor="@color/primary_text"
-            android:textSize="16sp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent" />
-    </android.support.constraint.ConstraintLayout>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:dataList="@{viewModel.dataList}" />
+    </com.cjj.MaterialRefreshLayout>
 </layout>

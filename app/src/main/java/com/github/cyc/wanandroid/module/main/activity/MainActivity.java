@@ -70,6 +70,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
         ActionBar actionBar = getSupportActionBar();
         actionBar.setHomeAsUpIndicator(R.drawable.ic_menu);
         actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setTitle(R.string.app_name);
     }
 
     private void initBottomNavigationView() {
@@ -80,22 +81,27 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
                     case R.id.tab_homepage:
+                        mDataBinding.iToolbar.tbToolbar.setTitle(R.string.app_name);
                         switchFragment(INDEX_HOMEPAGE);
                         return true;
 
                     case R.id.tab_system:
+                        mDataBinding.iToolbar.tbToolbar.setTitle(R.string.system);
                         switchFragment(INDEX_SYSTEM);
                         return true;
 
                     case R.id.tab_we_chat:
+                        mDataBinding.iToolbar.tbToolbar.setTitle(R.string.we_chat);
                         switchFragment(INDEX_WE_CHAT);
                         return true;
 
                     case R.id.tab_navigation:
+                        mDataBinding.iToolbar.tbToolbar.setTitle(R.string.navigation);
                         switchFragment(INDEX_NAVIGATION);
                         return true;
 
                     case R.id.tab_project:
+                        mDataBinding.iToolbar.tbToolbar.setTitle(R.string.project);
                         switchFragment(INDEX_PROJECT);
                         return true;
 
