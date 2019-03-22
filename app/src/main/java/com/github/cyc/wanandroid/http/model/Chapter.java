@@ -2,9 +2,10 @@ package com.github.cyc.wanandroid.http.model;
 
 import com.github.cyc.wanandroid.app.NoProguard;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Chapter implements NoProguard {
+public class Chapter implements NoProguard, Serializable {
 
     private Integer courseId;
     private Integer id;

@@ -9,6 +9,7 @@ public interface Constant {
 
     String KEY_URL = "key_url";
     String KEY_ID = "key_id";
+    String KEY_CHAPTER = "key_chapter";
 
     long SPLASH_TIME = 2000;
 

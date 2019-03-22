@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 
 import com.github.cyc.wanandroid.base.viewmodel.BaseItemViewModel;
 import com.github.cyc.wanandroid.http.model.Chapter;
+import com.github.cyc.wanandroid.navigator.SystemDetailsNavigator;
 import com.github.cyc.wanandroid.utils.Utils;
 
 import java.util.List;
@@ -17,6 +18,12 @@ public class SystemViewModel extends BaseItemViewModel<Chapter> {
     public ObservableField<String> parent = new ObservableField<>();
 
     public ObservableField<String> children = new ObservableField<>();
+
+    private SystemDetailsNavigator mSystemDetailsNavigator;
+
+    public SystemViewModel(SystemDetailsNavigator systemDetailsNavigator) {
+        mSystemDetailsNavigator = systemDetailsNavigator;
+    }
 
     @Override
     protected void setAllModel(@NonNull Chapter chapter) {
@@ -39,6 +46,13 @@ public class SystemViewModel extends BaseItemViewModel<Chapter> {
     }
 
     public void onClickItem() {
+        if (mSystemDetailsNavigator == null) {
+            return;
+        }
 
+        Chapter chapter = getBaseModel();
+        if (chapter != null) {
+            mSystemDetailsNavigator.startSystemDetailsActivity(chapter);
+        }
     }
 }
