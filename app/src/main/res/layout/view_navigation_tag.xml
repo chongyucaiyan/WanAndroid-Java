@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="6dp"
+    android:paddingTop="6dp"
+    android:paddingBottom="6dp"
+    android:paddingLeft="12dp"
+    android:paddingRight="12dp"
+    android:background="@drawable/selector_navigation_tag"
+    android:textColor="@color/primary_green"
+    android:textSize="14sp"
+    tools:text="导航名" />

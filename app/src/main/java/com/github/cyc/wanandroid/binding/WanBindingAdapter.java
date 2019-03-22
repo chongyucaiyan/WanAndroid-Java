@@ -6,15 +6,24 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.widget.RecyclerView;
 
 import com.cjj.MaterialRefreshLayout;
+import com.github.cyc.wanandroid.R;
 import com.github.cyc.wanandroid.base.adapter.BaseAdapter;
 import com.github.cyc.wanandroid.base.adapter.BasePagerAdapter;
+import com.github.cyc.wanandroid.base.adapter.BaseTagAdapter;
 import com.github.cyc.wanandroid.enums.RefreshState;
 import com.github.cyc.wanandroid.http.model.Banner;
 import com.github.cyc.wanandroid.module.main.model.BannerData;
+import com.github.cyc.wanandroid.utils.ResourceUtils;
 import com.github.cyc.wanandroid.utils.Utils;
+import com.zhy.view.flowlayout.TagAdapter;
+import com.zhy.view.flowlayout.TagFlowLayout;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import q.rorbin.verticaltablayout.VerticalTabLayout;
+import q.rorbin.verticaltablayout.adapter.SimpleTabAdapter;
+import q.rorbin.verticaltablayout.widget.ITabView;
 
 /**
  * 应用的BindingAdapter
@@ -54,6 +63,23 @@ public final class WanBindingAdapter {
         if (adapter instanceof BasePagerAdapter) {
             BasePagerAdapter basePagerAdapter = (BasePagerAdapter) adapter;
             basePagerAdapter.setDataList(dataList);
+        }
+    }
+
+    /**
+     * 设置TagFlowLayout的数据列表
+     *
+     * @param tagFlowLayout TagFlowLayout
+     * @param dataList      数据列表
+     * @param <T>           数据类型
+     */
+    @SuppressWarnings("unchecked")
+    @BindingAdapter("app:dataList")
+    public static <T> void setDataList(TagFlowLayout tagFlowLayout, List<T> dataList) {
+        TagAdapter adapter = tagFlowLayout.getAdapter();
+        if (adapter instanceof BaseTagAdapter) {
+            BaseTagAdapter baseTagAdapter = (BaseTagAdapter) adapter;
+            baseTagAdapter.setDataList(dataList);
         }
     }
 
@@ -119,5 +145,36 @@ public final class WanBindingAdapter {
         banner.setImages(imageUrlList);
         banner.setBannerTitles(titleList);
         banner.start();
+    }
+
+    /**
+     * 设置VerticalTabLayout的标题
+     *
+     * @param tabLayout VerticalTabLayout
+     * @param titleList 标题列表
+     */
+    @BindingAdapter("app:titleList")
+    public static void setTitleList(VerticalTabLayout tabLayout, List<String> titleList) {
+        if (Utils.isListEmpty(titleList)) {
+            return;
+        }
+
+        tabLayout.setTabAdapter(new SimpleTabAdapter() {
+
+            @Override
+            public int getCount() {
+                return titleList.size();
+            }
+
+            @Override
+            public ITabView.TabTitle getTitle(int position) {
+                return new ITabView.TabTitle.Builder()
+                        .setContent(titleList.get(position))
+                        .setTextColor(ResourceUtils.getColor(R.color.primary_text),
+                                ResourceUtils.getColor(R.color.secondary_text))
+                        .setTextSize(16)
+                        .build();
+            }
+        });
     }
 }

@@ -12,6 +12,9 @@
     <color name="primary_red">#F44336</color>
     <color name="primary_green">#4CAF50</color>
     <color name="primary_blue">#2196f3</color>
+    <color name="primary_grey">#9E9E9E</color>
+    <color name="primary_grey_dark">#616161</color>
+    <color name="primary_grey_light">#F5F5F5</color>
 
     <color name="white">#FFFFFF</color>
 

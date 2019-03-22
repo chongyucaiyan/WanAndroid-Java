@@ -10,20 +10,29 @@
             type="com.github.cyc.wanandroid.module.main.viewmodel.NavigationViewModel" />
     </data>
 
-    <android.support.constraint.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/page_background"
+        android:orientation="horizontal"
         tools:context=".module.main.fragment.NavigationFragment">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/navigation"
-            android:textColor="@color/primary_text"
-            android:textSize="16sp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent" />
-    </android.support.constraint.ConstraintLayout>
+        <q.rorbin.verticaltablayout.VerticalTabLayout
+            android:id="@+id/vtl_tab_layout"
+            android:layout_width="110dp"
+            android:layout_height="match_parent"
+            android:background="@color/primary_grey_light"
+            app:indicator_color="@color/white"
+            app:indicator_gravity="fill"
+            app:tab_height="50dp"
+            app:tab_margin="16dp"
+            app:tab_mode="scrollable"
+            app:titleList="@{viewModel.titleList}" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:dataList="@{viewModel.dataList}" />
+    </LinearLayout>
 </layout>

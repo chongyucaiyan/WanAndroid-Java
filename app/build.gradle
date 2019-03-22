@@ -103,4 +103,10 @@ dependencies {
 
     // AgentWeb
     implementation "com.just.agentweb:agentweb:$rootProject.ext.agentWebVersion"
+
+    // VerticalTabLayout
+    implementation "q.rorbin:VerticalTabLayout:$rootProject.ext.verticalTabLayoutVersion"
+
+    // FlowLayout
+    implementation "com.hyman:flowlayout-lib:$rootProject.ext.flowLayoutVersion"
 }

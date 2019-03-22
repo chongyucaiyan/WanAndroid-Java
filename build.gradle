@@ -55,4 +55,6 @@ ext {
     materialRefreshLayoutVersion = '1.3.0'
     bannerVersion = '1.4.10'
     agentWebVersion = '4.0.2'
+    verticalTabLayoutVersion = '1.2.9'
+    flowLayoutVersion = '1.1.2'
 }
