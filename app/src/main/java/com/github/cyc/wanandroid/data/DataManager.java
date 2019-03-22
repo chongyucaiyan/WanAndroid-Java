@@ -73,4 +73,14 @@ public class DataManager implements IHttpDataSource {
     public Observable<Response<List<Navigation>>> getNavigationListData() {
         return mHttpDataSource.getNavigationListData();
     }
+
+    @Override
+    public Observable<Response<List<Chapter>>> getProjectListData() {
+        return mHttpDataSource.getProjectListData();
+    }
+
+    @Override
+    public Observable<Response<ArticleList>> getProjectArticleListData(int id, int pageNum) {
+        return mHttpDataSource.getWeChatArticleListData(id, pageNum);
+    }
 }

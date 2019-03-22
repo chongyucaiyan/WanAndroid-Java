@@ -1,14 +1,18 @@
 package com.github.cyc.wanandroid.module.main.fragment;
 
 import com.github.cyc.wanandroid.R;
+import com.github.cyc.wanandroid.app.Injection;
 import com.github.cyc.wanandroid.base.fragment.BaseFragment;
 import com.github.cyc.wanandroid.databinding.FragmentProjectBinding;
+import com.github.cyc.wanandroid.module.main.adapter.ProjectListPagerAdapter;
 import com.github.cyc.wanandroid.module.main.viewmodel.ProjectViewModel;
 
 /**
  * 项目tab
  */
 public class ProjectFragment extends BaseFragment<FragmentProjectBinding, ProjectViewModel> {
+
+    private ProjectListPagerAdapter mPagerAdapter;
 
     public static ProjectFragment newInstance() {
         return new ProjectFragment();
@@ -21,7 +25,7 @@ public class ProjectFragment extends BaseFragment<FragmentProjectBinding, Projec
 
     @Override
     protected void initViewModel() {
-        mViewModel = new ProjectViewModel();
+        mViewModel = new ProjectViewModel(Injection.provideDataManager());
     }
 
     @Override
@@ -31,6 +35,24 @@ public class ProjectFragment extends BaseFragment<FragmentProjectBinding, Projec
 
     @Override
     protected void init() {
+        initView();
+        mViewModel.loadData();
+    }
 
+    @Override
+    protected boolean isSupportLoad() {
+        return true;
+    }
+
+    private void initView() {
+        mPagerAdapter = new ProjectListPagerAdapter(getFragmentManager());
+        mDataBinding.vpViewPager.setAdapter(mPagerAdapter);
+        mDataBinding.tlTabLayout.setupWithViewPager(mDataBinding.vpViewPager);
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        mPagerAdapter.release();
     }
 }

@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.github.cyc.wanandroid.module.main.viewmodel.ArticleListViewModel" />
+            type="com.github.cyc.wanandroid.module.main.viewmodel.ProjectListViewModel" />
     </data>
 
     <com.cjj.MaterialRefreshLayout
@@ -21,7 +21,7 @@
         app:wave_color="@android:color/transparent"
         app:refreshState="@{viewModel.refreshState}"
         app:hasMore="@{viewModel.hasMore}"
-        tools:context=".module.main.fragment.ArticleListFragment">
+        tools:context=".module.main.fragment.ProjectListFragment">
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/rv_recycler_view"

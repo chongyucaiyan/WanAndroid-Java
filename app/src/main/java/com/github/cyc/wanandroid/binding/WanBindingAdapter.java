@@ -4,7 +4,9 @@ import android.databinding.BindingAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
 import com.cjj.MaterialRefreshLayout;
 import com.github.cyc.wanandroid.R;
 import com.github.cyc.wanandroid.base.adapter.BaseAdapter;
@@ -120,6 +122,17 @@ public final class WanBindingAdapter {
         if (hasMore != null) {
             refreshLayout.setLoadMore(hasMore);
         }
+    }
+
+    /**
+     * 设置ImageView的图片URL
+     *
+     * @param imageView ImageView
+     * @param imageUrl  图片URL
+     */
+    @BindingAdapter("app:imageUrl")
+    public static void setImageUrl(ImageView imageView, String imageUrl) {
+        Glide.with(imageView).load(imageUrl).into(imageView);
     }
 
     /**
