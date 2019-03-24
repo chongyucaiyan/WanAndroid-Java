@@ -13,6 +13,7 @@ import android.view.Gravity;
 import android.view.MenuItem;
 
 import com.github.cyc.wanandroid.R;
+import com.github.cyc.wanandroid.app.Constant;
 import com.github.cyc.wanandroid.base.activity.BaseActivity;
 import com.github.cyc.wanandroid.databinding.ActivityMainBinding;
 import com.github.cyc.wanandroid.module.main.fragment.HomepageFragment;
@@ -21,6 +22,7 @@ import com.github.cyc.wanandroid.module.main.fragment.ProjectFragment;
 import com.github.cyc.wanandroid.module.main.fragment.SystemFragment;
 import com.github.cyc.wanandroid.module.main.fragment.WeChatFragment;
 import com.github.cyc.wanandroid.module.main.viewmodel.MainViewModel;
+import com.github.cyc.wanandroid.utils.ToastUtils;
 
 /**
  * 主页
@@ -36,6 +38,8 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
     private SparseArray<Fragment> mFragmentMap = new SparseArray<>();
 
     private int mLastIndex = -1;
+
+    private long mExitTime;
 
     public static void start(Context context) {
         Intent intent = new Intent(context, MainActivity.class);
@@ -193,5 +197,16 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
         }
 
         transaction.show(fragment).commitAllowingStateLoss();
+    }
+
+    @Override
+    public void onBackPressed() {
+        long curTime = System.currentTimeMillis();
+        if (curTime - mExitTime > Constant.EXIT_TIME) {
+            ToastUtils.show(R.string.exit_tips);
+            mExitTime = curTime;
+        } else {
+            super.onBackPressed();
+        }
     }
 }

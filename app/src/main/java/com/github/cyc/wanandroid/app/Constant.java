@@ -12,6 +12,7 @@ public interface Constant {
     String KEY_CHAPTER = "key_chapter";
 
     long SPLASH_TIME = 2000;
+    long EXIT_TIME = 2000;
 
     long TIMEOUT_CONNECT = 10;
     long TIMEOUT_READ = 10;

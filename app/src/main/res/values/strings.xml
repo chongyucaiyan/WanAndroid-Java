@@ -28,5 +28,6 @@
     <string name="top">置顶</string>
     <string name="fresh">新</string>
     <string name="chapter_name_format">%1$s / %2$s</string>
+    <string name="exit_tips">再按一次退出程序</string>
 
 </resources>
