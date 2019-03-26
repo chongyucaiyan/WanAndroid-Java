@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 
 import com.github.cyc.wanandroid.R;
 import com.github.cyc.wanandroid.app.Injection;
+import com.github.cyc.wanandroid.app.ScrollToTop;
 import com.github.cyc.wanandroid.base.fragment.BaseFragment;
 import com.github.cyc.wanandroid.databinding.FragmentNavigationBinding;
 import com.github.cyc.wanandroid.module.main.adapter.NavigationListAdapter;
@@ -17,7 +18,8 @@ import q.rorbin.verticaltablayout.widget.TabView;
 /**
  * 导航tab
  */
-public class NavigationFragment extends BaseFragment<FragmentNavigationBinding, NavigationViewModel> {
+public class NavigationFragment extends BaseFragment<FragmentNavigationBinding, NavigationViewModel>
+        implements ScrollToTop {
 
     private VerticalTabLayout.OnTabSelectedListener mTabSelectedListener;
 
@@ -125,6 +127,11 @@ public class NavigationFragment extends BaseFragment<FragmentNavigationBinding, 
     private void setTabSelected() {
         int firstPosition = mLayoutManager.findFirstVisibleItemPosition();
         mDataBinding.vtlTabLayout.setTabSelected(firstPosition, false);
+    }
+
+    @Override
+    public void scrollToTop() {
+        mDataBinding.rvRecyclerView.smoothScrollToPosition(0);
     }
 
     @Override

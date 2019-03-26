@@ -2,11 +2,14 @@ package com.github.cyc.wanandroid.module.main.activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBar;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.github.cyc.wanandroid.R;
 import com.github.cyc.wanandroid.app.Constant;
+import com.github.cyc.wanandroid.app.ScrollToTop;
 import com.github.cyc.wanandroid.base.activity.BaseActivity;
 import com.github.cyc.wanandroid.base.viewmodel.BaseViewModel;
 import com.github.cyc.wanandroid.databinding.ActivitySystemDetailsBinding;
@@ -52,6 +55,7 @@ public class SystemDetailsActivity extends BaseActivity<ActivitySystemDetailsBin
     protected void init() {
         initToolbar();
         initViewPager();
+        initFloatingActionButton();
     }
 
     private void initToolbar() {
@@ -67,6 +71,23 @@ public class SystemDetailsActivity extends BaseActivity<ActivitySystemDetailsBin
         mPagerAdapter.setDataList(mChapter.getChildren());
         mDataBinding.vpViewPager.setAdapter(mPagerAdapter);
         mDataBinding.tlTabLayout.setupWithViewPager(mDataBinding.vpViewPager);
+    }
+
+    private void initFloatingActionButton() {
+        mDataBinding.fabScrollToTop.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                scrollToTop();
+            }
+        });
+    }
+
+    private void scrollToTop() {
+        Fragment fragment = mPagerAdapter.getItem(mDataBinding.vpViewPager.getCurrentItem());
+        if (fragment instanceof ScrollToTop) {
+            ((ScrollToTop) fragment).scrollToTop();
+        }
     }
 
     @Override

@@ -6,6 +6,7 @@ import com.cjj.MaterialRefreshLayout;
 import com.cjj.MaterialRefreshListener;
 import com.github.cyc.wanandroid.R;
 import com.github.cyc.wanandroid.app.Injection;
+import com.github.cyc.wanandroid.app.ScrollToTop;
 import com.github.cyc.wanandroid.base.fragment.BaseFragment;
 import com.github.cyc.wanandroid.databinding.FragmentHomepageBinding;
 import com.github.cyc.wanandroid.module.main.adapter.ArticleListAdapter;
@@ -14,7 +15,8 @@ import com.github.cyc.wanandroid.module.main.viewmodel.HomepageViewModel;
 /**
  * 首页tab
  */
-public class HomepageFragment extends BaseFragment<FragmentHomepageBinding, HomepageViewModel> {
+public class HomepageFragment extends BaseFragment<FragmentHomepageBinding, HomepageViewModel>
+        implements ScrollToTop {
 
     public static HomepageFragment newInstance() {
         return new HomepageFragment();
@@ -65,5 +67,10 @@ public class HomepageFragment extends BaseFragment<FragmentHomepageBinding, Home
     private void initRecyclerView() {
         mDataBinding.rvRecyclerView.setAdapter(new ArticleListAdapter(mViewModel.dataList));
         mDataBinding.rvRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+    }
+
+    @Override
+    public void scrollToTop() {
+        mDataBinding.rvRecyclerView.smoothScrollToPosition(0);
     }
 }

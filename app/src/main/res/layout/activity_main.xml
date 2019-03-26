@@ -42,6 +42,17 @@
                 app:itemIconTint="@color/selector_bottom_nav_item_color"
                 app:menu="@menu/menu_bottom_nav"
                 app:layout_behavior="@string/bottom_navigation_behavior" />
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fab_scroll_to_top"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="64dp"
+                android:layout_marginRight="16dp"
+                android:layout_gravity="bottom|end"
+                android:src="@drawable/ic_arrow_upward"
+                app:fabSize="mini"
+                app:layout_behavior="@string/floating_action_button_behavior" />
         </android.support.design.widget.CoordinatorLayout>
 
         <android.support.design.widget.NavigationView

@@ -1,7 +1,10 @@
 package com.github.cyc.wanandroid.module.main.fragment;
 
+import android.support.v4.app.Fragment;
+
 import com.github.cyc.wanandroid.R;
 import com.github.cyc.wanandroid.app.Injection;
+import com.github.cyc.wanandroid.app.ScrollToTop;
 import com.github.cyc.wanandroid.base.fragment.BaseFragment;
 import com.github.cyc.wanandroid.databinding.FragmentWeChatBinding;
 import com.github.cyc.wanandroid.module.main.adapter.ArticleListPagerAdapter;
@@ -10,7 +13,8 @@ import com.github.cyc.wanandroid.module.main.viewmodel.WeChatViewModel;
 /**
  * 公众号tab
  */
-public class WeChatFragment extends BaseFragment<FragmentWeChatBinding, WeChatViewModel> {
+public class WeChatFragment extends BaseFragment<FragmentWeChatBinding, WeChatViewModel>
+        implements ScrollToTop {
 
     private ArticleListPagerAdapter mPagerAdapter;
 
@@ -48,6 +52,14 @@ public class WeChatFragment extends BaseFragment<FragmentWeChatBinding, WeChatVi
         mPagerAdapter = new ArticleListPagerAdapter(getChildFragmentManager());
         mDataBinding.vpViewPager.setAdapter(mPagerAdapter);
         mDataBinding.tlTabLayout.setupWithViewPager(mDataBinding.vpViewPager);
+    }
+
+    @Override
+    public void scrollToTop() {
+        Fragment fragment = mPagerAdapter.getItem(mDataBinding.vpViewPager.getCurrentItem());
+        if (fragment instanceof ScrollToTop) {
+            ((ScrollToTop) fragment).scrollToTop();
+        }
     }
 
     @Override

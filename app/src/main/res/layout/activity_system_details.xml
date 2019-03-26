@@ -33,5 +33,16 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab_scroll_to_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_gravity="bottom|end"
+            android:src="@drawable/ic_arrow_upward"
+            app:fabSize="mini"
+            app:layout_behavior="@string/floating_action_button_behavior" />
     </android.support.design.widget.CoordinatorLayout>
 </layout>

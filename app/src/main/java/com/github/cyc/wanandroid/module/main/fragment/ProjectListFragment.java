@@ -8,6 +8,7 @@ import com.cjj.MaterialRefreshListener;
 import com.github.cyc.wanandroid.R;
 import com.github.cyc.wanandroid.app.Constant;
 import com.github.cyc.wanandroid.app.Injection;
+import com.github.cyc.wanandroid.app.ScrollToTop;
 import com.github.cyc.wanandroid.base.fragment.BaseLazyFragment;
 import com.github.cyc.wanandroid.databinding.FragmentProjectListBinding;
 import com.github.cyc.wanandroid.module.main.adapter.ProjectListAdapter;
@@ -16,7 +17,8 @@ import com.github.cyc.wanandroid.module.main.viewmodel.ProjectListViewModel;
 /**
  * 项目列表页
  */
-public class ProjectListFragment extends BaseLazyFragment<FragmentProjectListBinding, ProjectListViewModel> {
+public class ProjectListFragment extends BaseLazyFragment<FragmentProjectListBinding, ProjectListViewModel>
+        implements ScrollToTop {
 
     private int mId;
 
@@ -85,5 +87,10 @@ public class ProjectListFragment extends BaseLazyFragment<FragmentProjectListBin
     private void initRecyclerView() {
         mDataBinding.rvRecyclerView.setAdapter(new ProjectListAdapter(mViewModel.dataList));
         mDataBinding.rvRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+    }
+
+    @Override
+    public void scrollToTop() {
+        mDataBinding.rvRecyclerView.smoothScrollToPosition(0);
     }
 }

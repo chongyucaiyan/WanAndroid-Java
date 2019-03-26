@@ -11,9 +11,11 @@ import android.support.v7.app.ActionBar;
 import android.util.SparseArray;
 import android.view.Gravity;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.github.cyc.wanandroid.R;
 import com.github.cyc.wanandroid.app.Constant;
+import com.github.cyc.wanandroid.app.ScrollToTop;
 import com.github.cyc.wanandroid.base.activity.BaseActivity;
 import com.github.cyc.wanandroid.databinding.ActivityMainBinding;
 import com.github.cyc.wanandroid.module.main.fragment.HomepageFragment;
@@ -66,6 +68,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
         initToolbar();
         initBottomNavigationView();
         initDrawerNavigationView();
+        initFloatingActionButton();
         switchFragment(INDEX_HOMEPAGE);
     }
 
@@ -132,6 +135,19 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
 
                     default:
                         return false;
+                }
+            }
+        });
+    }
+
+    private void initFloatingActionButton() {
+        mDataBinding.fabScrollToTop.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Fragment fragment = getFragment(mLastIndex);
+                if (fragment instanceof ScrollToTop) {
+                    ((ScrollToTop) fragment).scrollToTop();
                 }
             }
         });

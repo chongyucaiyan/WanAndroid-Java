@@ -6,6 +6,7 @@ import com.cjj.MaterialRefreshLayout;
 import com.cjj.MaterialRefreshListener;
 import com.github.cyc.wanandroid.R;
 import com.github.cyc.wanandroid.app.Injection;
+import com.github.cyc.wanandroid.app.ScrollToTop;
 import com.github.cyc.wanandroid.base.fragment.BaseFragment;
 import com.github.cyc.wanandroid.databinding.FragmentSystemBinding;
 import com.github.cyc.wanandroid.module.main.adapter.SystemListAdapter;
@@ -14,7 +15,8 @@ import com.github.cyc.wanandroid.module.main.viewmodel.SystemViewModel;
 /**
  * 体系tab
  */
-public class SystemFragment extends BaseFragment<FragmentSystemBinding, SystemViewModel> {
+public class SystemFragment extends BaseFragment<FragmentSystemBinding, SystemViewModel>
+        implements ScrollToTop {
 
     public static SystemFragment newInstance() {
         return new SystemFragment();
@@ -60,5 +62,10 @@ public class SystemFragment extends BaseFragment<FragmentSystemBinding, SystemVi
     private void initRecyclerView() {
         mDataBinding.rvRecyclerView.setAdapter(new SystemListAdapter(mViewModel.dataList));
         mDataBinding.rvRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+    }
+
+    @Override
+    public void scrollToTop() {
+        mDataBinding.rvRecyclerView.smoothScrollToPosition(0);
     }
 }
