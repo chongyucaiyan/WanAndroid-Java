@@ -83,7 +83,7 @@ public class ArticleListFragment extends BaseLazyFragment<FragmentArticleListBin
     }
 
     private void initRecyclerView() {
-        mDataBinding.rvRecyclerView.setAdapter(new ArticleListAdapter());
+        mDataBinding.rvRecyclerView.setAdapter(new ArticleListAdapter(mViewModel.dataList));
         mDataBinding.rvRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
     }
 }

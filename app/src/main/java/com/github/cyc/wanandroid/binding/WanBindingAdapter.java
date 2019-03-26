@@ -3,13 +3,11 @@ package com.github.cyc.wanandroid.binding;
 import android.databinding.BindingAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.widget.RecyclerView;
 import android.widget.ImageView;
 
 import com.cjj.MaterialRefreshLayout;
 import com.github.cyc.wanandroid.R;
 import com.github.cyc.wanandroid.app.GlideApp;
-import com.github.cyc.wanandroid.base.adapter.BaseAdapter;
 import com.github.cyc.wanandroid.base.adapter.BasePagerAdapter;
 import com.github.cyc.wanandroid.base.adapter.BaseTagAdapter;
 import com.github.cyc.wanandroid.enums.RefreshState;
@@ -34,21 +32,6 @@ public final class WanBindingAdapter {
 
     private WanBindingAdapter() {
 
-    }
-
-    /**
-     * 设置RecyclerView的数据列表
-     *
-     * @param recyclerView RecyclerView
-     * @param dataList     数据列表
-     */
-    @BindingAdapter("app:dataList")
-    public static void setDataList(RecyclerView recyclerView, List<Object> dataList) {
-        RecyclerView.Adapter adapter = recyclerView.getAdapter();
-        if (adapter instanceof BaseAdapter) {
-            BaseAdapter baseAdapter = (BaseAdapter) adapter;
-            baseAdapter.setDataList(dataList);
-        }
     }
 
     /**

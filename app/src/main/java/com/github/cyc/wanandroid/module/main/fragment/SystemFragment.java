@@ -58,7 +58,7 @@ public class SystemFragment extends BaseFragment<FragmentSystemBinding, SystemVi
     }
 
     private void initRecyclerView() {
-        mDataBinding.rvRecyclerView.setAdapter(new SystemListAdapter());
+        mDataBinding.rvRecyclerView.setAdapter(new SystemListAdapter(mViewModel.dataList));
         mDataBinding.rvRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
     }
 }

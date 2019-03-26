@@ -83,7 +83,7 @@ public class ProjectListFragment extends BaseLazyFragment<FragmentProjectListBin
     }
 
     private void initRecyclerView() {
-        mDataBinding.rvRecyclerView.setAdapter(new ProjectListAdapter());
+        mDataBinding.rvRecyclerView.setAdapter(new ProjectListAdapter(mViewModel.dataList));
         mDataBinding.rvRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
     }
 }

@@ -63,7 +63,7 @@ public class HomepageFragment extends BaseFragment<FragmentHomepageBinding, Home
     }
 
     private void initRecyclerView() {
-        mDataBinding.rvRecyclerView.setAdapter(new ArticleListAdapter());
+        mDataBinding.rvRecyclerView.setAdapter(new ArticleListAdapter(mViewModel.dataList));
         mDataBinding.rvRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
     }
 }

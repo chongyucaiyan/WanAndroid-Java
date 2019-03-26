@@ -1,5 +1,6 @@
 package com.github.cyc.wanandroid.module.main.adapter;
 
+import android.databinding.ObservableList;
 import android.support.annotation.NonNull;
 import android.view.ViewGroup;
 
@@ -11,6 +12,10 @@ import com.github.cyc.wanandroid.module.main.viewholder.NavigationViewHolder;
  * 导航列表Adapter
  */
 public class NavigationListAdapter extends BaseAdapter<NavigationViewHolder> {
+
+    public NavigationListAdapter(@NonNull ObservableList<Object> dataList) {
+        super(dataList);
+    }
 
     @NonNull
     @Override

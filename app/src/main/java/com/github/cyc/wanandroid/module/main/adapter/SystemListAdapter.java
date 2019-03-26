@@ -1,5 +1,6 @@
 package com.github.cyc.wanandroid.module.main.adapter;
 
+import android.databinding.ObservableList;
 import android.support.annotation.NonNull;
 import android.view.ViewGroup;
 
@@ -12,8 +13,8 @@ import com.github.cyc.wanandroid.module.main.viewholder.SystemViewHolder;
  */
 public class SystemListAdapter extends BaseAdapter<SystemViewHolder> {
 
-    public SystemListAdapter() {
-
+    public SystemListAdapter(@NonNull ObservableList<Object> dataList) {
+        super(dataList);
     }
 
     @NonNull

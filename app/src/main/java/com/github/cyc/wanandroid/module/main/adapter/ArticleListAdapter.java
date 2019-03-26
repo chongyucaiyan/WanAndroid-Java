@@ -1,5 +1,6 @@
 package com.github.cyc.wanandroid.module.main.adapter;
 
+import android.databinding.ObservableList;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
@@ -18,8 +19,8 @@ public class ArticleListAdapter extends BaseAdapter<RecyclerView.ViewHolder> {
     private static final int VIEW_TYPE_ARTICLE = 1;
     private static final int VIEW_TYPE_BANNER = 2;
 
-    public ArticleListAdapter() {
-
+    public ArticleListAdapter(@NonNull ObservableList<Object> dataList) {
+        super(dataList);
     }
 
     @NonNull

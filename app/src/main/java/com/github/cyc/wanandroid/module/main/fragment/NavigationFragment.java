@@ -100,7 +100,7 @@ public class NavigationFragment extends BaseFragment<FragmentNavigationBinding, 
 
         mDataBinding.rvRecyclerView.addOnScrollListener(mScrollListener);
         mDataBinding.rvRecyclerView.setLayoutManager(mLayoutManager);
-        mDataBinding.rvRecyclerView.setAdapter(new NavigationListAdapter());
+        mDataBinding.rvRecyclerView.setAdapter(new NavigationListAdapter(mViewModel.dataList));
     }
 
     private void smoothScrollToPosition(int position) {
