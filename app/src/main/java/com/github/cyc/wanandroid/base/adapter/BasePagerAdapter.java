@@ -2,7 +2,7 @@ package com.github.cyc.wanandroid.base.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.util.SparseArray;
 
 import java.util.List;
@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * PagerAdapter的基类
  */
-public abstract class BasePagerAdapter<T> extends FragmentStatePagerAdapter {
+public abstract class BasePagerAdapter<T> extends FragmentPagerAdapter {
 
     protected SparseArray<Fragment> mFragmentMap = new SparseArray<>();
 

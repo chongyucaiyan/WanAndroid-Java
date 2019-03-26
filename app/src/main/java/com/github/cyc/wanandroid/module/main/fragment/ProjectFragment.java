@@ -45,7 +45,7 @@ public class ProjectFragment extends BaseFragment<FragmentProjectBinding, Projec
     }
 
     private void initView() {
-        mPagerAdapter = new ProjectListPagerAdapter(getFragmentManager());
+        mPagerAdapter = new ProjectListPagerAdapter(getChildFragmentManager());
         mDataBinding.vpViewPager.setAdapter(mPagerAdapter);
         mDataBinding.tlTabLayout.setupWithViewPager(mDataBinding.vpViewPager);
     }

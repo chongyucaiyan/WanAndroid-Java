@@ -45,7 +45,7 @@ public class WeChatFragment extends BaseFragment<FragmentWeChatBinding, WeChatVi
     }
 
     private void initView() {
-        mPagerAdapter = new ArticleListPagerAdapter(getFragmentManager());
+        mPagerAdapter = new ArticleListPagerAdapter(getChildFragmentManager());
         mDataBinding.vpViewPager.setAdapter(mPagerAdapter);
         mDataBinding.tlTabLayout.setupWithViewPager(mDataBinding.vpViewPager);
     }
