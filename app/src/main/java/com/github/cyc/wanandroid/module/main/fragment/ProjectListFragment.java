@@ -8,7 +8,7 @@ import com.cjj.MaterialRefreshListener;
 import com.github.cyc.wanandroid.R;
 import com.github.cyc.wanandroid.app.Constant;
 import com.github.cyc.wanandroid.app.Injection;
-import com.github.cyc.wanandroid.base.fragment.BaseFragment;
+import com.github.cyc.wanandroid.base.fragment.BaseLazyFragment;
 import com.github.cyc.wanandroid.databinding.FragmentProjectListBinding;
 import com.github.cyc.wanandroid.module.main.adapter.ProjectListAdapter;
 import com.github.cyc.wanandroid.module.main.viewmodel.ProjectListViewModel;
@@ -16,7 +16,7 @@ import com.github.cyc.wanandroid.module.main.viewmodel.ProjectListViewModel;
 /**
  * 项目列表页
  */
-public class ProjectListFragment extends BaseFragment<FragmentProjectListBinding, ProjectListViewModel> {
+public class ProjectListFragment extends BaseLazyFragment<FragmentProjectListBinding, ProjectListViewModel> {
 
     private int mId;
 
@@ -55,6 +55,10 @@ public class ProjectListFragment extends BaseFragment<FragmentProjectListBinding
     protected void init() {
         initRefreshLayout();
         initRecyclerView();
+    }
+
+    @Override
+    protected void onLazyLoad() {
         mViewModel.loadData();
     }
 

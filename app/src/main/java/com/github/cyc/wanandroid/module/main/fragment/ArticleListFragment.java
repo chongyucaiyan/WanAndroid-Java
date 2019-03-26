@@ -8,7 +8,7 @@ import com.cjj.MaterialRefreshListener;
 import com.github.cyc.wanandroid.R;
 import com.github.cyc.wanandroid.app.Constant;
 import com.github.cyc.wanandroid.app.Injection;
-import com.github.cyc.wanandroid.base.fragment.BaseFragment;
+import com.github.cyc.wanandroid.base.fragment.BaseLazyFragment;
 import com.github.cyc.wanandroid.databinding.FragmentArticleListBinding;
 import com.github.cyc.wanandroid.module.main.adapter.ArticleListAdapter;
 import com.github.cyc.wanandroid.module.main.viewmodel.ArticleListViewModel;
@@ -16,7 +16,7 @@ import com.github.cyc.wanandroid.module.main.viewmodel.ArticleListViewModel;
 /**
  * 文章列表页
  */
-public class ArticleListFragment extends BaseFragment<FragmentArticleListBinding, ArticleListViewModel> {
+public class ArticleListFragment extends BaseLazyFragment<FragmentArticleListBinding, ArticleListViewModel> {
 
     private int mId;
 
@@ -55,6 +55,10 @@ public class ArticleListFragment extends BaseFragment<FragmentArticleListBinding
     protected void init() {
         initRefreshLayout();
         initRecyclerView();
+    }
+
+    @Override
+    protected void onLazyLoad() {
         mViewModel.loadData();
     }
 
