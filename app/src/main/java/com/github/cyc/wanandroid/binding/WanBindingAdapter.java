@@ -3,6 +3,9 @@ package com.github.cyc.wanandroid.binding;
 import android.databinding.BindingAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.widget.ImageView;
 
 import com.cjj.MaterialRefreshLayout;
@@ -87,10 +90,23 @@ public final class WanBindingAdapter {
 
             case LOAD_MORE_END:
                 refreshLayout.finishRefreshLoadMore();
+                scrollToNextPosition(refreshLayout);
                 break;
 
             default:
                 break;
+        }
+    }
+
+    private static void scrollToNextPosition(MaterialRefreshLayout refreshLayout) {
+        View child = refreshLayout.getChildAt(0);
+        if (child instanceof RecyclerView) {
+            RecyclerView recyclerView = (RecyclerView) child;
+            RecyclerView.LayoutManager layoutManager = recyclerView.getLayoutManager();
+            if (layoutManager instanceof LinearLayoutManager) {
+                LinearLayoutManager linearLayoutManager = (LinearLayoutManager) layoutManager;
+                recyclerView.smoothScrollToPosition(linearLayoutManager.findLastVisibleItemPosition() + 1);
+            }
         }
     }
 
