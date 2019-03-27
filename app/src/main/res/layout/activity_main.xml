@@ -19,7 +19,8 @@
 
         <android.support.design.widget.CoordinatorLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            tools:background="@color/page_background">
 
             <include
                 android:id="@+id/i_toolbar"
@@ -60,6 +61,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="start"
+            android:background="@color/page_background"
             app:headerLayout="@layout/view_nav_header"
             app:itemTextColor="@color/primary"
             app:itemIconTint="@color/primary"
