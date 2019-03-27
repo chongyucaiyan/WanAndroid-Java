@@ -18,6 +18,7 @@ import com.github.cyc.wanandroid.app.Constant;
 import com.github.cyc.wanandroid.app.ScrollToTop;
 import com.github.cyc.wanandroid.base.activity.BaseActivity;
 import com.github.cyc.wanandroid.databinding.ActivityMainBinding;
+import com.github.cyc.wanandroid.module.details.activity.DetailsActivity;
 import com.github.cyc.wanandroid.module.main.fragment.HomepageFragment;
 import com.github.cyc.wanandroid.module.main.fragment.NavigationFragment;
 import com.github.cyc.wanandroid.module.main.fragment.ProjectFragment;
@@ -130,6 +131,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
                         return true;
 
                     case R.id.nav_about:
+                        DetailsActivity.start(MainActivity.this, Constant.ABOUT_URL);
                         mDataBinding.dlDrawer.closeDrawers();
                         return true;
 

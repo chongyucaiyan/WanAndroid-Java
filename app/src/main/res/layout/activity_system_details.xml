@@ -18,7 +18,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_scrollFlags="scroll|enterAlways"
-                app:theme="@style/Toolbar" />
+                app:theme="@style/ToolbarStyle" />
 
             <android.support.design.widget.TabLayout
                 android:id="@+id/tl_tab_layout"

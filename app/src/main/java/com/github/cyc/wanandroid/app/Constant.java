@@ -6,6 +6,7 @@ package com.github.cyc.wanandroid.app;
 public interface Constant {
 
     String BASE_URL = "https://www.wanandroid.com/";
+    String ABOUT_URL = "https://github.com/chongyucaiyan/WanAndroid-Java";
 
     String KEY_URL = "key_url";
     String KEY_ID = "key_id";
