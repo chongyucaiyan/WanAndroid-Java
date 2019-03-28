@@ -1,32 +1,31 @@
 # WanAndroid-Java
 玩Android客户端
 
-## Introduction
+## 项目简介
 一款基于玩Android开放API开发的玩Android客户端。整个项目采用MVVM + Retrofit + RxJava架构进行开发。
 
-## Screenshots
+## 项目截图
 
 <div align="center">
     <img src="https://raw.githubusercontent.com/chongyucaiyan/WanAndroid-Java/develop/screenshots/01-Homepage.jpg" width=30% /> <img src="https://raw.githubusercontent.com/chongyucaiyan/WanAndroid-Java/develop/screenshots/02-System.jpg" width=30% /> <img src="https://raw.githubusercontent.com/chongyucaiyan/WanAndroid-Java/develop/screenshots/03-WeChat.jpg" width=30% />
     <img src="https://raw.githubusercontent.com/chongyucaiyan/WanAndroid-Java/develop/screenshots/04-Navigation.jpg" width=30% /> <img src="https://raw.githubusercontent.com/chongyucaiyan/WanAndroid-Java/develop/screenshots/05-Project.jpg" width=30% />
 </div>
 
-## Version
+## 项目版本
 
 ### v1.0.0
 
 * 基本功能
 
-## Skill points
+## 主要技术点
 
-* Material Design
-* MVVM-DataBinding
-* Lifecycle
-* Retrofit
-* RxJava
-* Glide
+* 基本遵循Material Design设计风格
+* 采用MVVM-DataBinding模式开发，视图操作和业务逻辑解耦，View层做到极度简洁
+* 采用Lifecycle实现ViewModel的生命周期回调
+* 采用Retrofit + RxJava实现网络请求
+* 采用Glide实现图片加载
 
-## Thanks
+## 感谢
 
 ### API
 
@@ -50,7 +49,7 @@
 * [VerticalTabLayout](https://github.com/qstumn/VerticalTabLayout)
 * [FlowLayout](https://github.com/hongyangAndroid/FlowLayout)
 
-## Statement
+## 声明
 本项目纯属学习交流使用。
 
 ## LICENSE
