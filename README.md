@@ -17,10 +17,11 @@
 
 * 基本功能
 
-## 主要技术点
+## 技术要点
 
-* 基本遵循Material Design设计风格
-* 采用MVVM-DataBinding模式开发，视图操作和业务逻辑解耦，View层做到极度简洁
+* 遵循Material Design设计风格
+* 采用MVVM模式开发，视图操作和业务逻辑解耦
+* 采用DataBinding框架实现View与数据的绑定，View层做到极度简洁
 * 采用Lifecycle实现ViewModel的生命周期回调
 * 采用Retrofit + RxJava实现网络请求
 * 采用Glide实现图片加载
