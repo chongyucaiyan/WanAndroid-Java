@@ -25,7 +25,7 @@ public class ProjectViewModel extends BaseItemViewModel<Article> {
 
     private DetailsNavigator mDetailsNavigator;
 
-    public ProjectViewModel(DetailsNavigator detailsNavigator) {
+    public ProjectViewModel(@NonNull DetailsNavigator detailsNavigator) {
         mDetailsNavigator = detailsNavigator;
     }
 
@@ -39,10 +39,6 @@ public class ProjectViewModel extends BaseItemViewModel<Article> {
     }
 
     public void onClickItem() {
-        if (mDetailsNavigator == null) {
-            return;
-        }
-
         Article article = getBaseModel();
         if (article != null && !TextUtils.isEmpty(article.getLink())) {
             mDetailsNavigator.startDetailsActivity(article.getLink());

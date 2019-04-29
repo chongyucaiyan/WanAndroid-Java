@@ -14,7 +14,7 @@ public class BannerViewModel extends BaseItemViewModel<BannerData> {
 
     private DetailsNavigator mDetailsNavigator;
 
-    public BannerViewModel(DetailsNavigator detailsNavigator) {
+    public BannerViewModel(@NonNull DetailsNavigator detailsNavigator) {
         mDetailsNavigator = detailsNavigator;
     }
 
@@ -24,10 +24,6 @@ public class BannerViewModel extends BaseItemViewModel<BannerData> {
     }
 
     public void onClickBanner(int position) {
-        if (mDetailsNavigator == null) {
-            return;
-        }
-
         BannerData bannerData = getBaseModel();
         if (bannerData != null && bannerData.getBannerList() != null
                 && bannerData.getBannerList().size() > position) {

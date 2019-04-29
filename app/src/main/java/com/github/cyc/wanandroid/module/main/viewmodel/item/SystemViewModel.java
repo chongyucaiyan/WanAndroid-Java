@@ -21,7 +21,7 @@ public class SystemViewModel extends BaseItemViewModel<Chapter> {
 
     private SystemDetailsNavigator mSystemDetailsNavigator;
 
-    public SystemViewModel(SystemDetailsNavigator systemDetailsNavigator) {
+    public SystemViewModel(@NonNull SystemDetailsNavigator systemDetailsNavigator) {
         mSystemDetailsNavigator = systemDetailsNavigator;
     }
 
@@ -46,10 +46,6 @@ public class SystemViewModel extends BaseItemViewModel<Chapter> {
     }
 
     public void onClickItem() {
-        if (mSystemDetailsNavigator == null) {
-            return;
-        }
-
         Chapter chapter = getBaseModel();
         if (chapter != null) {
             mSystemDetailsNavigator.startSystemDetailsActivity(chapter);

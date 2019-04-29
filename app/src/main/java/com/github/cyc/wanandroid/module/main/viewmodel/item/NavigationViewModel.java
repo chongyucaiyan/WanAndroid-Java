@@ -21,7 +21,7 @@ public class NavigationViewModel extends BaseItemViewModel<Navigation> {
 
     private DetailsNavigator mDetailsNavigator;
 
-    public NavigationViewModel(DetailsNavigator detailsNavigator) {
+    public NavigationViewModel(@NonNull DetailsNavigator detailsNavigator) {
         mDetailsNavigator = detailsNavigator;
     }
 
@@ -32,10 +32,6 @@ public class NavigationViewModel extends BaseItemViewModel<Navigation> {
     }
 
     public void onClickTag(int position) {
-        if (mDetailsNavigator == null) {
-            return;
-        }
-
         if (dataList.size() > position) {
             Article article = dataList.get(position);
             mDetailsNavigator.startDetailsActivity(article.getLink());
