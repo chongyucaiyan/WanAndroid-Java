@@ -19,7 +19,6 @@
 
 ## 技术要点
 
-* 遵循Material Design设计风格
 * 采用MVVM模式开发，视图操作和业务逻辑解耦
 * 采用DataBinding框架实现View与数据的绑定，View层做到极度简洁
 * 采用Lifecycle实现ViewModel的生命周期回调
